@@ -1,12 +1,14 @@
 import { FaShieldDog } from "react-icons/fa6";
 import { PiCarSimpleBold } from "react-icons/pi";
 import { MdSportsMartialArts } from "react-icons/md";
-import { useState } from "react";
+//import { useState, useEffect } from "react";
 
 function Landing() {
-  const [hover, setHover] = useState(false);
+  //const [hover, setHover] = useState(false);
 
-  // TODO: to use these states in outlining individual cards once hovered by modifying classes.
+  // TODO: !. To use these states in outlining individual cards once hovered by modifying classes.
+  // 2. Matke this page responsive
+  // 3. Animate and add visual effects to the page.abs
 
   return (
     <div className="bg-gradient-to-bl from-cyan-700 h-screen w-screen to-slate-950 text-white font-['Raleway']">
@@ -18,7 +20,6 @@ function Landing() {
           My Quiz App
         </h2>
       </div>
-      {/* TODO: Make use of the useEffect hook to make this phrase change continually. */}
 
       <div className="text-7xl font-semibold">Pick A topic!</div>
 
