@@ -2,25 +2,25 @@ import Axios from "axios";
 import { useState, useEffect } from "react";
 
 function Question() {
-  const [questions, setQuestions] = useState(Array(10).fill(null));
-  const [answers, setAnswers] = useState(Array(10).fill(null));
+  const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
-    Axios.get(
-      "https://opentdb.com/api.php?amount=10&category=27&type=boolean"
-    ).then((res) => {
-      const quest = res.data.results;
-
-      setQuestions(
-        quest.map((obj) => {
-          return obj.question;
-        })
+    async function getData() {
+      const response = await Axios.get(
+        "https://opentdb.com/api.php?amount=10&category=27&type=boolean"
       );
-      setAnswers(quest.map((obj) => obj.correct_answer));
-    });
+      const data = response.data.results;
+      setQuestions(data.map((obj) => obj.question));
+      setAnswers(data.map((obj) => obj.correct_answer));
+    }
+    getData();
   }, []);
 
-  console.log(questions, answers);
+  const data = questions.map((item, index) => {
+    return { question: item, ans: answers[index] };
+  });
+  console.log(data);
   return <div></div>;
 }
 
