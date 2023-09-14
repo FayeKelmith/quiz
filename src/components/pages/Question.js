@@ -39,18 +39,26 @@ const Question = () => {
 };
 
 export const QuestionBox = ({ data }) => {
+  const [num, setNum] = useState(0);
+
+  const display = () => {
+    if (num < 10) {
+      return data.length ? data[num].question : null;
+    }
+  };
   return (
-    <div className="min-w-3/5 border border-primary text-center mx-auto min-h-5/6 ">
-      <div className="w-80 pt-5 px-10 mx-auto my-0 ">
-        {data.length ? data[0].question.replace(".", "?") : null}
-      </div>
+    <div className="min-w-3/5  text-center mx-auto min-h-5/6 ">
+      <div className="w-80 pt-5 px-10 mx-auto my-0 ">{display()}</div>
       <h3 className="text-3xl bg-night text-day my-5 mx-auto rounded-md w-fit px-10 py-3">
         What do you think?
       </h3>
-      <div className="my-0 mx-auto flex border border-secondary fixed mb-0">
-        <Truebtn className="mx-auto" />
-
-        <Falsebtn className="mx-auto" />
+      <div className="my-0 mx-auto flex place-content-center mb-0">
+        <span className="mx-16" attr="Truebtn" onClick={() => setNum(num + 1)}>
+          <Truebtn />
+        </span>
+        <span className=" mx-16" attr="False" onClick={() => setNum(num + 1)}>
+          <Falsebtn />
+        </span>
       </div>
     </div>
   );
