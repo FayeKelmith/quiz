@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-//import { ProgressVariant } from "../atoms/Progress";
+import { Truebtn, Falsebtn, Closebtn } from "../atoms/Responsebtn";
+
 const Question = () => {
   //TODO: to use choice here in receiving users' in put.
   // const [choice, setChoice] = useState(Array(10).fill(null));
@@ -20,27 +21,37 @@ const Question = () => {
     getData();
   }, []);
   return (
-    <div className="outline-5 outline-slate-600 bg-slate-100 text-center shadow-lg my-[20vh] mx-auto w-3/5 h-[60vh]">
-      <div className="grid grid-cols-2 gap-10">
-        {/*TODO: Timer as atom  */}
-        <div>Timer</div>
-        <div>
-          {/*TODO:   Score card as atom*/}
-          Score Card
+    <div className="container">
+      <div className="bg-slate-100 text-center shadow-lg my-[20vh] mx-auto w-3/5 min-h-[60vh]">
+        <div className="flex">
+          {/*TODO: Timer as atom  */}
+          <div className="flex-auto">Timer</div>
+          <div className="flex-auto">
+            {/*TODO:   Score card as atom*/}
+            Score Card
+          </div>
+          <Closebtn className="flex-none " />
         </div>
+        <QuestionBox data={data} />
       </div>
-      <QuestionBox data={data} />
-
-      {/*TODO: Answer question tabs and buttons - atoms */}
-      <div>True or False</div>
     </div>
   );
 };
 
 export const QuestionBox = ({ data }) => {
   return (
-    <div className="w-80 py-10 px-10 mx-auto my-0 ">
-      {data.length ? data[0].question.replace(".", "?") : null}
+    <div className="min-w-3/5 border border-primary text-center mx-auto min-h-5/6 ">
+      <div className="w-80 pt-5 px-10 mx-auto my-0 ">
+        {data.length ? data[0].question.replace(".", "?") : null}
+      </div>
+      <h3 className="text-3xl bg-night text-day my-5 mx-auto rounded-md w-fit px-10 py-3">
+        What do you think?
+      </h3>
+      <div className="my-0 mx-auto flex border border-secondary fixed mb-0">
+        <Truebtn className="mx-auto" />
+
+        <Falsebtn className="mx-auto" />
+      </div>
     </div>
   );
 };
