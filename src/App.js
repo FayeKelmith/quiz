@@ -1,11 +1,14 @@
 import "./App.css";
-//import Landing from "./components/pages/Landing";
+import { QuestionBox } from "./components/molecules/QuestionBox";
 import Question from "./components/pages/Question";
-//import Responsebtn from "./components/atoms/Responsebtn";
+import { QuestionInfo } from "./context/QuestionContext";
 function App() {
   return (
     <div className="App">
-      <Question />
+      <QuestionInfo>
+        <QuestionBox />
+        <Question />
+      </QuestionInfo>
     </div>
   );
 }

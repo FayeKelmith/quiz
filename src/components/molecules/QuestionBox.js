@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Truebtn, Falsebtn } from "../atoms/Responsebtn";
+import QuestionContext from "../../context/QuestionContext";
 
-export const QuestionBox = ({ data }) => {
+export const QuestionBox = () => {
+  const { data } = useContext(QuestionContext);
   const [num, setNum] = useState(0);
   const [choice, setChoice] = useState(Array(10).fill(null));
 
@@ -32,14 +34,10 @@ export const QuestionBox = ({ data }) => {
         What do you think?
       </h3>
       <div className="my-0 mx-auto flex place-content-center mb-0">
-        <span value={true} className="mx-16" onClick={() => handleClick(true)}>
+        <span className="mx-16" onClick={() => handleClick(true)}>
           <Truebtn />
         </span>
-        <span
-          className=" mx-16"
-          attr="False"
-          onClick={() => handleClick(false)}
-        >
+        <span className=" mx-16" onClick={() => handleClick(false)}>
           <Falsebtn />
         </span>
       </div>
