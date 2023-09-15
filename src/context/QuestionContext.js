@@ -1,7 +1,7 @@
-import { useState, createContext } from "react";
+import { createContext } from "react";
 
 //context
-const QuestionInfo = createContext(undefined);
+const QuestionInfo = createContext();
 
 //function that carries
 export const QuestionContext = () => {
