@@ -4,13 +4,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import Progress from "../atoms/Progress";
+import Timer from "../atoms/Timer";
 
 const Question = () => {
   const [num, setNum] = useState(0);
   const [choice, setChoice] = useState(Array(10).fill(null));
-
   const [data, setData] = useState([]);
-
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
@@ -27,17 +26,28 @@ const Question = () => {
     }
     getData();
   }, []);
-
+  //to handle answered
   const handleClick = (val) => {
     const nextChoice = choice.slice();
     if (num < 10) {
       nextChoice[num] = val;
       setChoice(nextChoice);
+      next();
+    }
+  };
+  //to handle no answer
+  const handleTimeout = () => {
+    if (num < 10) {
+      next();
+    }
+  };
+  //to run the next;
+  const next = () => {
+    if (num < 10) {
       setNum(num + 1);
     }
   };
 
-  //get questions
   //BUG: the questions don't load immediately
   let questions = data.map((item) => item.question);
 
@@ -59,7 +69,9 @@ const Question = () => {
             </div>
             <div className="flex">
               {/*TODO: Timer as atom  */}
-              <div className="flex-auto">Timer</div>
+              <div className="flex-auto">
+                <Timer timing={10} onCountDown={() => handleTimeout()} />
+              </div>
               <Closebtn className="flex-none " />
             </div>
             <div className="min-w-3/5  text-center mx-auto min-h-5/6 ">

@@ -1,5 +1,5 @@
 import ResultLine from "../atoms/ResultLine";
-import Confetti from "react-dom-confetti";
+import { Confettis } from "../atoms/Confetti";
 import { useState } from "react";
 const Results = ({ questions, answers, selections }) => {
   const score = answers.reduce((acc, elt, ind) => {
@@ -16,10 +16,10 @@ const Results = ({ questions, answers, selections }) => {
   return (
     <div className="bg-white">
       {score >= 6 ? (
-        <div className="flex">
-          <Confetti active={active} config={config} className="flex-auto" />
-          <Confetti active={active} config={config} className="flex-auto" />
-          <Confetti active={active} config={config} className="flex-auto" />
+        <div className="flex justify-center">
+          <Confettis active={active} className="flex-1" />
+          <Confettis active={active} className="flex-1" />
+          <Confettis active={active} className="flex-1" />
         </div>
       ) : null}
       <h1 className="text-5xl underline py-5 mb-4 decoration-lining text-night">
@@ -45,25 +45,4 @@ const Results = ({ questions, answers, selections }) => {
   );
 };
 
-const config = {
-  angle: 150,
-  spread: 360,
-  startVelocity: 40,
-  elementCount: 150,
-  dragFriction: 0.1,
-  duration: 4000,
-  stagger: 3,
-  width: "20px",
-  height: "20px",
-  perspective: "500px",
-  colors: [
-    "#a864fd",
-    "#29cdff",
-    "#78ff44",
-    "#ff718d",
-    "#fdff6a",
-    "#008080",
-    "#ff4747",
-  ],
-};
 export default Results;

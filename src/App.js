@@ -1,4 +1,5 @@
 import "./App.css";
+//import Timer from "./components/atoms/Timer";
 import Question from "./components/pages/Question";
 
 function App() {
