@@ -12,16 +12,19 @@ const Responsebtn = ({ value }) => {
   );
 };
 
-export const Truebtn = () => {
-  return (
-    <TiTick className="text-7xl text-teal-500 shadow-2xl rounded-full hover:scale-105" />
-  );
+export const Truebtn = ({ size }) => {
+  const originalClass = `text-teal-500 shadow-2xl rounded-full hover:scale-105`;
+
+  const newClass = `${originalClass} text-${size}xl`;
+
+  return <TiTick className={newClass} />;
 };
 
-export const Falsebtn = () => {
-  return (
-    <RxCross2 className="text-7xl text-secondary shadow-2xl font-extrabold rounded-full hover:scale-105" />
-  );
+export const Falsebtn = ({ size }) => {
+  const originalClass = `text-7xl text-secondary shadow-2xl font-extrabold rounded-full hover:scale-105`;
+
+  const newClass = `${originalClass} text-${size}xl`;
+  return <RxCross2 className={newClass} />;
 };
 
 export const Closebtn = () => {
