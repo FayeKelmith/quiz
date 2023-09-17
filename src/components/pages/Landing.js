@@ -1,5 +1,5 @@
 import GoButton from "../atoms/GoButton";
-
+import { Outlet } from "react-router-dom";
 function Landing() {
   return (
     <div className="bg-gradient-to-bl from-cyan-700 h-screen w-screen text-center mx-auto my-0 to-slate-950 text-white font-['Raleway']">
@@ -13,7 +13,12 @@ function Landing() {
       </div>
 
       <div className="text-7xl font-semibold my-20">Pick A topic!</div>
+
       <GoButton />
+
+      <div id="guidelines">
+        <Outlet />
+      </div>
     </div>
   );
 }
