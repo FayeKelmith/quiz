@@ -1,17 +1,8 @@
-import { FaShieldDog } from "react-icons/fa6";
-import { PiCarSimpleBold } from "react-icons/pi";
-import { MdSportsMartialArts } from "react-icons/md";
-//import { useState, useEffect } from "react";
+import GoButton from "../atoms/GoButton";
 
 function Landing() {
-  //const [hover, setHover] = useState(false);
-
-  // TODO: !. To use these states in outlining individual cards once hovered by modifying classes.
-  // 2. Matke this page responsive
-  // 3. Animate and add visual effects to the page.abs
-
   return (
-    <div className="bg-gradient-to-bl from-cyan-700 h-screen w-screen to-slate-950 text-white font-['Raleway']">
+    <div className="bg-gradient-to-bl from-cyan-700 h-screen w-screen text-center mx-auto my-0 to-slate-950 text-white font-['Raleway']">
       <div className="flex pt-10">
         <h1 className="flex-1 text-left tracking-wider pl-20 text-5xl text-secondary font-bold w64">
           Titan
@@ -21,37 +12,10 @@ function Landing() {
         </h2>
       </div>
 
-      <div className="text-7xl font-semibold">Pick A topic!</div>
-
-      <div className=" grid grid-cols-3 gap-x-10 w-fit my-0 mx-auto mt-20">
-        <Card
-          category="Animals"
-          icon={<FaShieldDog className=" text-7xl mx-auto my-0 mt-5 flex" />}
-        />
-        <Card
-          category="Vehicles"
-          icon={
-            <PiCarSimpleBold className=" text-7xl mx-auto my-0 mt-5 flex" />
-          }
-        />
-        <Card
-          category="Athletics"
-          icon={
-            <MdSportsMartialArts className=" text-7xl mx-auto my-0 mt-5 flex" />
-          }
-        />
-      </div>
+      <div className="text-7xl font-semibold my-20">Pick A topic!</div>
+      <GoButton />
     </div>
   );
 }
-
-export const Card = ({ category, icon }) => {
-  return (
-    <div className="bg-white text-primary text-center drop-shadow-2xl min-w-fit rounded-md py-20 px-5">
-      <h1 className="text-5xl">{category}</h1>
-      {icon}
-    </div>
-  );
-};
 
 export default Landing;

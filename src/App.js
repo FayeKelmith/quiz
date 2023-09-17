@@ -1,13 +1,12 @@
-import "./App.css";
-//import Timer from "./components/atoms/Timer";
-import Question from "./components/pages/Question";
+// import "./App.css";
+// import Landing from "./components/pages/Landing";
 
-function App() {
-  return (
-    <div className="App">
-      <Question />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div className="App">
+//       <Landing />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
