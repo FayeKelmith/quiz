@@ -25,12 +25,17 @@ const Results = ({ questions, answers, selections }) => {
       <h1 className="text-5xl underline py-5 mb-4 decoration-lining text-night">
         Results
       </h1>
-      <div className="text-2xl">
+      <div className="text-4xl">
         You scored{" "}
-        <span className={`${score >= 6 ? "text-primary " : "text-secondary"}`}>
+        <span
+          className={` font-major font-semibold ${
+            score >= 6 ? "text-primary " : "text-secondary"
+          }`}
+        >
           {score}
         </span>{" "}
-        out of {questions.length}
+        out of{" "}
+        <span className="font-major font-semibold">{questions.length}</span>
       </div>
       <div className=" mx-auto mt-5 w-4/6 bg-slate-100 px-10 py-5">
         {questions.map((elt, ind) => (

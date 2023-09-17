@@ -21,7 +21,7 @@ export const Truebtn = ({ size }) => {
 };
 
 export const Falsebtn = ({ size }) => {
-  const originalClass = `text-7xl text-secondary shadow-2xl font-extrabold rounded-full hover:scale-105`;
+  const originalClass = `text-secondary shadow-2xl font-extrabold rounded-full hover:scale-105`;
 
   const newClass = `${originalClass} text-${size}xl`;
   return <RxCross2 className={newClass} />;

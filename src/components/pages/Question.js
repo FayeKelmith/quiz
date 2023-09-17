@@ -10,6 +10,7 @@ const Question = () => {
   const [num, setNum] = useState(0);
   const [choice, setChoice] = useState(Array(10).fill(null));
   const [data, setData] = useState([]);
+  const [reset, setReset] = useState(false);
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
@@ -33,6 +34,7 @@ const Question = () => {
       nextChoice[num] = val;
       setChoice(nextChoice);
       next();
+      setReset(true);
     }
   };
   //to handle no answer
@@ -43,18 +45,24 @@ const Question = () => {
   };
   //to run the next;
   const next = () => {
-    if (num < 10) {
-      setNum(num + 1);
-    }
+    setNum(num + 1);
   };
 
-  //BUG: the questions don't load immediately
+  //to hande reset
+
+  const handleReset = () => {
+    setReset(false);
+  };
+
   let questions = data.map((item) => item.question);
 
   let answers = data.map((item) => item.answer);
 
   const display = () => {
     if (num <= 10) {
+      if (!data.length) {
+        return "Loading...";
+      }
       return questions[num];
     }
   };
@@ -70,7 +78,18 @@ const Question = () => {
             <div className="flex">
               {/*TODO: Timer as atom  */}
               <div className="flex-auto">
-                <Timer timing={10} onCountDown={() => handleTimeout()} />
+                {data.length ? (
+                  <Timer
+                    timing={10}
+                    resetTimer={reset}
+                    setResetTimer={() => handleReset()}
+                    onCountDown={() => handleTimeout()}
+                  />
+                ) : (
+                  <div className="w-fit mx-auto">
+                    <p className="font-2xl px-8 py-4 ">Loading...</p>
+                  </div>
+                )}
               </div>
               <Closebtn className="flex-none " />
             </div>

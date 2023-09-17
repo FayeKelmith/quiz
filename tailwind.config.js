@@ -10,6 +10,9 @@ module.exports = {
         day: "#f9f9f9",
         lining: "#ffc000",
       },
+      fontFamily: {
+        major: "Major Mono Display, monospace",
+      },
     },
   },
   plugins: [],
