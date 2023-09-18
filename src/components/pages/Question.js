@@ -1,24 +1,24 @@
 import { QuestionBox } from "../molecules/QuestionBox";
 import { Truebtn, Falsebtn, Closebtn } from "../atoms/Responsebtn";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import Progress from "../atoms/Progress";
 import Timer from "../atoms/Timer";
-import { QuestionID } from "../../context/QuestionContext";
+import { useQuestionId } from "../../context/QuestionContext";
 
 const Question = () => {
   const [num, setNum] = useState(0);
   const [choice, setChoice] = useState(Array(10).fill(null));
   const [data, setData] = useState([]);
   const [reset, setReset] = useState(false);
-  const value = useContext(QuestionID);
+  const { id } = useQuestionId();
 
-  console.log(value);
+  console.log(id);
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `https://opentdb.com/api.php?amount=10&category=${value}&type=boolean`
+        `https://opentdb.com/api.php?amount=10&category=${id}&type=boolean`
       );
       const intel = response.data.results;
       const info = intel.map((item) => {
@@ -30,7 +30,7 @@ const Question = () => {
       setData(info);
     }
     getData();
-  }, [value]);
+  }, [id]);
   //to handle answered
   const handleClick = (val) => {
     const nextChoice = choice.slice();
