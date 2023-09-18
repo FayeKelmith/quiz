@@ -11,7 +11,6 @@ function Landing() {
           My Quiz App
         </h2>
       </div>
-
       <div className="text-7xl font-semibold my-20">Pick A topic!</div>
 
       <GoButton />

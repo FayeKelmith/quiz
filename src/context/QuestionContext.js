@@ -1,7 +1,2 @@
-import React from "react";
-
-const QuestionContext = () => {
-  return <div></div>;
-};
-
-export default QuestionContext;
+import { createContext } from "react";
+export const QuestionID = createContext(9);

@@ -14,7 +14,7 @@ const Results = ({ questions, answers, selections }) => {
   }, 1000);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white text-center">
       {score >= 6 ? (
         <div className="flex justify-center">
           <Confettis active={active} className="flex-1" />
