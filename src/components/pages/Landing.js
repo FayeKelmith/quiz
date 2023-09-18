@@ -15,10 +15,7 @@ function Landing() {
       <div className="text-7xl font-semibold my-20">Pick A topic!</div>
 
       <GoButton />
-
-      <div id="guidelines">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 }

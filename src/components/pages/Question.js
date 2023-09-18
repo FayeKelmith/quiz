@@ -26,7 +26,7 @@ const Question = () => {
       setData(info);
     }
     getData();
-  }, []);
+  });
   //to handle answered
   const handleClick = (val) => {
     const nextChoice = choice.slice();
