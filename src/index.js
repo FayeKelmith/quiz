@@ -11,6 +11,8 @@ import {
 import Guide from "./components/pages/Guide";
 import Landing from "./components/pages/Landing";
 
+/* The code is creating a router using the `createBrowserRouter` function from the `react-router-dom`
+library. The router is configured with routes defined using the `createRoutesFromElements` function. */
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Landing />}>
