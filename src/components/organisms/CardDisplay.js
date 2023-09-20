@@ -16,7 +16,7 @@ const CardDisplay = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="grid grid-cols-3 gap-x-10 w-fit my-0 mx-auto mt-10">
         <button onClick={() => handleClick(27)}>
           <Card category="Animals" icon={<FaShieldDog className={space} />} />
@@ -34,7 +34,7 @@ const CardDisplay = () => {
           />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
