@@ -15,17 +15,19 @@ const CardDisplay = () => {
     setVal(value);
     navigate("/Question");
   };
+  const btn = "mb-10";
   return (
     <>
       <QuestionID.Provider value={val}>
-        <div className="grid grid-cols-3 gap-x-10 w-fit my-0 mx-auto mt-10">
-          <button onClick={() => handleClick(27)}>
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-x-10 w-fit my-0 mx-auto mt-10">
+          <button onClick={() => handleClick(27)} className={btn}>
             <Card category="Animals" icon={<FaShieldDog className={space} />} />
           </button>
           <button
             onClick={() => {
-              setVal(28);
+              handleClick(28);
             }}
+            className={btn}
           >
             <Card
               category="Vehicles"
@@ -36,6 +38,7 @@ const CardDisplay = () => {
             <Card
               category="Athletics"
               icon={<MdSportsMartialArts className={space} />}
+              className={btn}
             />
           </button>
         </div>
