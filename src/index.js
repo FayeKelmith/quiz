@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Guide from "./components/pages/Guide";
 import Landing from "./components/pages/Landing";
 import Question from "./components/pages/Question";
-
+import { QuestionProvider } from "./context/QuestionContext";
 /* The code is creating a router using the `createBrowserRouter` function from the `react-router-dom`
 library. The router is configured with routes defined using the `createRoutesFromElements` function. */
 const router = createBrowserRouter(
@@ -29,4 +29,8 @@ const router = createBrowserRouter(
   // </Route>
 );
 export const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router} />);
+root.render(
+  <QuestionProvider>
+    <RouterProvider router={router} />
+  </QuestionProvider>
+);
